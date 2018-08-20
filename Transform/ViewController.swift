@@ -9,17 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var bouton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func boutonAction(_ sender: Any) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.bouton.transform = CGAffineTransform(scaleX: 0.8, y: 1.25)
+        }) { (success) in
+            UIView.animate(withDuration: 0.5, animations: {
+                //self.bouton.transform = CGAffineTransform(scaleX: 1, y: 1)
+                self.bouton.transform = CGAffineTransform.identity
+            }, completion: nil)
+        }
+        
     }
-
-
 }
 
